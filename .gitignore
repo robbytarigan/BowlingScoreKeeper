@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/BowlingScoreKeeper/bin
+/BowlingScoreKeeper/obj/Debug
+*.map
+*.user
+/BowlingScoreKeeper.Tests/bin/Debug
+/BowlingScoreKeeper.Tests/obj/Debug
+*.suo

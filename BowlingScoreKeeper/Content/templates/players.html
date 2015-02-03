@@ -1,0 +1,22 @@
+﻿<h2>Enter players name</h2>
+<p data-ng-form="addPlayerForm">
+    <input type="text" name="newPlayerName" data-ng-model="newPlayerName" required="required" value="" maxlength="100" />
+    <span class="text-danger" data-ng-show="addPlayerForm.newPlayerName.$error.required">
+        Required!
+    </span>
+    <span class="text-danger" data-ng-show="isDuplicatePlayer">
+        Cannot enter duplicate player!
+    </span>
+</p>
+<p><a class="btn btn-default" data-ng-click="addPlayer()">Add</a></p>
+
+<p>List of players:</p>
+<p>
+    <ul data-ng-repeat="name in names">
+        <li>{{name}}</li>
+    </ul>
+</p>
+
+<p>
+    <a class="btn btn-default" data-ng-click="startGame()" data-ng-show="names.length > 0">Start Game</a>
+</p>
