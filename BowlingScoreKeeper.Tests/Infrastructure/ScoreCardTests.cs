@@ -1,10 +1,6 @@
-﻿using BowlingScoreKeeper.Infrastructure;
+﻿using System.Linq;
+using BowlingScoreKeeper.Infrastructure;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BowlingScoreKeeper.Tests.Infrastructure
 {

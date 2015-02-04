@@ -1,9 +1,6 @@
-﻿using BowlingScoreKeeper.Core;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Web;
+using BowlingScoreKeeper.Core;
 
 namespace BowlingScoreKeeper.Infrastructure
 {

@@ -1,29 +1,20 @@
 ﻿<h2>Game</h2>
 
 <p>Enter scores for each player for Frame {{currentFrameIndex+1}} (Roll {{currentDeliveryIndex+1}})</p>
-<p>
+<p data-ng-form="scoreForm">
     <ul class="list-unstyled" data-ng-repeat="card in scoreCards">
         <li>
             {{card.player}}
-            <div data-ng-show="currentFrameIndex == 0">
-                <input type="number" min="0" max="10" data-ng-show="currentDeliveryIndex == 0" data-ng-model="card.rollRecords[0].delivery1" maxlength="2" />                
-                <input type="number" min="0" max="{{10 - card.rollRecords[0].delivery1}}" value="0" data-ng-show="currentDeliveryIndex == 1" data-ng-model="card.rollRecords[0].delivery2" maxlength="2" />
-            </div>
-            <div data-ng-show="currentFrameIndex == 1">
-                <input type="number" min="0" max="10" data-ng-show="currentDeliveryIndex == 0" data-ng-model="card.rollRecords[1].delivery1" maxlength="2" />
-                <input type="number" min="0" max="{{10 - card.rollRecords[1].delivery1}}" value="0" data-ng-show="currentDeliveryIndex == 1" data-ng-model="card.rollRecords[1].delivery2" maxlength="2" />
-            </div>
 
-
-            <div data-ng-show="currentFrameIndex >=2 && currentFrameIndex <= 10">
-                <input type="number" min="0" max="10" data-ng-show="currentDeliveryIndex == 0" data-ng-model="card.rollRecords[currentFrameIndex].delivery1" maxlength="2" />
-                <input type="number" min="0" max="{{10 - card.rollRecords[currentFrameIndex].delivery1}}" value="0" data-ng-show="currentDeliveryIndex == 1" data-ng-model="card.rollRecords[currentFrameIndex].delivery2" maxlength="2" />
+            <div data-ng-show="currentFrameIndex <= 10">
+                <input type="number" min="0" max="10" data-ng-show="currentDeliveryIndex == 0" data-ng-model="card.rollRecords[currentFrameIndex].delivery1" maxlength="2" required="required" />
+                <input type="number" min="0" max="{{10 - card.rollRecords[currentFrameIndex].delivery1}}" value="0" data-ng-show="currentDeliveryIndex == 1" data-ng-model="card.rollRecords[currentFrameIndex].delivery2" maxlength="2" required="required" />
             </div>
             <div data-ng-show="currentFrameIndex == 10">
-                <input type="number" min="0" max="10" data-ng-show="currentDeliveryIndex == 0" data-ng-model="card.rollRecords[currentFrameIndex].delivery1" maxlength="2" />
-                <input type="number" min="0" max="10" data-ng-if="card.rollRecords[currentFrameIndex].delivery1 == 10" data-ng-show="currentDeliveryIndex == 1" data-ng-model="card.rollRecords[currentFrameIndex].delivery2" maxlength="2" />
-                <input type="number" min="0" max="{{10 - card.rollRecords[currentFrameIndex].delivery1}}" data-ng-if="card.rollRecords[currentFrameIndex].delivery1 < 10" data-ng-show="currentDeliveryIndex == 1" data-ng-model="card.rollRecords[currentFrameIndex].delivery2" maxlength="2" />
-                <input type="number" min="0" max="10" data-ng-show="currentDeliveryIndex == 2 && (card.rollRecords[currentFrameIndex].delivery1 + card.rollRecords[currentFrameIndex].delivery2) == 10" data-ng-model="card.rollRecords[currentFrameIndex].delivery3" maxlength="2" />
+                <input type="number" min="0" max="10" data-ng-show="currentDeliveryIndex == 0" data-ng-model="card.rollRecords[currentFrameIndex].delivery1" maxlength="2" required="required" />
+                <input type="number" min="0" max="10" data-ng-if="card.rollRecords[currentFrameIndex].delivery1 == 10" data-ng-show="currentDeliveryIndex == 1" data-ng-model="card.rollRecords[currentFrameIndex].delivery2" maxlength="2" required="required" />
+                <input type="number" min="0" max="{{10 - card.rollRecords[currentFrameIndex].delivery1}}" data-ng-if="card.rollRecords[currentFrameIndex].delivery1 < 10" data-ng-show="currentDeliveryIndex == 1" data-ng-model="card.rollRecords[currentFrameIndex].delivery2" maxlength="2" required="required" />
+                <input type="number" min="0" max="10" data-ng-show="currentDeliveryIndex == 2 && (card.rollRecords[currentFrameIndex].delivery1 + card.rollRecords[currentFrameIndex].delivery2) == 10" data-ng-model="card.rollRecords[currentFrameIndex].delivery3" maxlength="2" required="required" />
             </div>
         </li>
     </ul>
@@ -36,27 +27,27 @@
             {{card.player}}
             <table class="table table-bordered">
                 <tr>
-                    <td>{{displayDelivery(card.rollRecords, 0, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 0, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 1, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 1, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 2, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 2, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 3, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 3, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 4, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 4, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 5, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 5, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 6, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 6, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 7, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 7, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 8, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 8, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 9, 0)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 9, 1)}}</td>
-                    <td>{{displayDelivery(card.rollRecords, 9, 2)}}</td>
+                    <td>{{card.rollRecords | displayDelivery:0:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:0:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:1:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:1:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:2:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:2:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:3:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:3:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:4:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:4:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:5:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:5:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:6:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:6:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:7:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:7:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:8:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:8:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:9:0}}</td>
+                    <td>{{card.rollRecords | displayDelivery:9:1}}</td>
+                    <td>{{card.rollRecords | displayDelivery:9:2}}</td>
                     <td class="text-center">0</td>
                 </tr>
                 <tr>

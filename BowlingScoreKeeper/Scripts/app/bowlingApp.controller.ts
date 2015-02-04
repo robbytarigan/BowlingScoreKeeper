@@ -64,44 +64,6 @@
             });
         };
 
-        $scope.displayDelivery = (rollRecords: IRollRecord[], frameIndex: number, deliveryIndex: number): string =>
-        {
-            if (frameIndex <= $scope.currentFrameIndex) {
-                return "";
-            }
-
-            switch (deliveryIndex) {
-                case 0:
-                    if (rollRecords[frameIndex].delivery1 == null) {
-                        return "";
-                    }
-
-                    return rollRecords[frameIndex].delivery1 == 10 ? "X" : rollRecords[frameIndex].delivery1.toString();
-                case 1:
-                    if (rollRecords[frameIndex].delivery2 == null) {
-                        return "";
-                    }
-
-                    if (frameIndex == 10) {
-                        return rollRecords[frameIndex].delivery2 == 10 ? "X" : (rollRecords[frameIndex].delivery1 + rollRecords[frameIndex].delivery2) == 10 ? "/" : rollRecords[frameIndex].delivery2.toString();
-                    }
-
-                    return (rollRecords[frameIndex].delivery1 + rollRecords[frameIndex].delivery2) == 10 ? "/" : rollRecords[frameIndex].delivery2.toString();
-                case 2:
-                    if (rollRecords[frameIndex].delivery3 == null) {
-                        return "";
-                    }
-
-                    if (frameIndex == 10) {
-                        return rollRecords[frameIndex].delivery3 == 10 ? "X" : rollRecords[frameIndex].delivery3.toString();
-                    }
-
-                    return "";
-                default:
-                    return "";            
-            }                        
-        };
-
         $http.get("/api/game/players").success((data: string[], status) => {
             for (var i = 0; i < data.length; i++) {
                 $scope.scoreCards.push({ player: data[i], rollRecords: initializeEmptyRollRecords(data[i]) });
@@ -131,19 +93,11 @@
         currentFrameIndex: number;
         currentDeliveryIndex: number;
         isGameOver: boolean;
-        updateScore(): void;
-        displayDelivery(rollRecords: IRollRecord[], frameIndex: number, deliveryIndex: number): string;
+        updateScore(): void;        
     }
 
     interface IScoreCard {
         player: string;        
         rollRecords: IRollRecord[];
-    }
-
-    interface IRollRecord {
-        player: string;
-        delivery1?: number;
-        delivery2?: number;
-        delivery3?: number;
-    }
+    }    
 }

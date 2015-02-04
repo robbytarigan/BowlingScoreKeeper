@@ -27,7 +27,8 @@ namespace BowlingScoreKeeper
                 "~/Scripts/angular-route.js", 
                 "~/Scripts/app/bowlingApp.module.js",
                 "~/Scripts/app/bowlingApp.config.js", 
-                "~/Scripts/app/bowlingApp.controller.js"));
+                "~/Scripts/app/bowlingApp.controller.js",
+                "~/Scripts/app/bowlingApp.filter.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

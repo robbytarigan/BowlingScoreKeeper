@@ -29,7 +29,7 @@ namespace BowlingScoreKeeper.Infrastructure
             {
                 return this.scoreCards.Keys;
             }
-        }
+        }        
 
         public void UpdateRollRecord(int frameIndex, RollRecord[] records)
         {

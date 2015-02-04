@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace BowlingScoreKeeper.Infrastructure
+﻿namespace BowlingScoreKeeper.Infrastructure
 {
     public static class Constants
     {

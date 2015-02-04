@@ -22,3 +22,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+input.ng-invalid {
+    background-color: #ffc3c3;
+    color: #ff1a1a;
+}

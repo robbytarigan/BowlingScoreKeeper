@@ -255,7 +255,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app\bowlingApp.config.ts" />
     <TypeScriptCompile Include="Scripts\app\bowlingApp.controller.ts" />
+    <TypeScriptCompile Include="Scripts\app\bowlingApp.interface.d.ts" />
     <TypeScriptCompile Include="Scripts\app\bowlingApp.module.ts" />
+    <TypeScriptCompile Include="Scripts\app\bowlingApp.filter.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />

@@ -1,22 +1,19 @@
-﻿using BowlingScoreKeeper.Infrastructure;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using BowlingScoreKeeper.Infrastructure;
 
 namespace BowlingScoreKeeper.Controllers
 {
     [RoutePrefix("api/game")]
     public class GameController : ApiController
     {
-        private static Game game = new Game(new[] {"fdfdfd", "gd  ljk"});
+        private static Game game = new Game(new[] {"No name"});
       
         [Route("players")]
         public void PutPlayers(string[] players)
         {
+            Contract.Requires(players != null);
             game = new Game(players);
         }
 
@@ -31,7 +28,7 @@ namespace BowlingScoreKeeper.Controllers
         {
             Contract.Requires(frameIndex >= 0 && frameIndex <= Constants.FramesTotal);
             Contract.Requires(records != null);
-            game.UpdateRollRecord(frameIndex, records);
+            game.UpdateRollRecord(frameIndex, records);            
         }        
     }
 }
